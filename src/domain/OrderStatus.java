@@ -1,4 +1,8 @@
 package domain;
 
-public class OrderStatus {
+public enum OrderStatus {
+    PENDING,      // Đang chờ xử lý
+    COMPLETED,    // Đã hoàn thành
+    CANCELLED,    // Đã hủy
+    PROCESSING    // Đang xử lý
 }
