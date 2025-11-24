@@ -68,9 +68,9 @@ public class ConsoleMenu {
             customerRepository.load();
             supplierRepository.load();
             orderRepository.load();
-            System.out.println("✅ Đã tải dữ liệu thành công!");
+            System.out.println("Đã tải dữ liệu thành công!");
         } catch (IOException e) {
-            System.out.println("⚠️  Lỗi khi tải dữ liệu: " + e.getMessage());
+            System.out.println("Lỗi khi tải dữ liệu: " + e.getMessage());
         }
     }
 
@@ -80,9 +80,9 @@ public class ConsoleMenu {
             customerRepository.save();
             supplierRepository.save();
             orderRepository.save();
-            System.out.println("✅ Đã lưu dữ liệu thành công!");
+            System.out.println(" Đã lưu dữ liệu thành công!");
         } catch (IOException e) {
-            System.out.println("❌ Lỗi khi lưu dữ liệu: " + e.getMessage());
+            System.out.println("Lỗi khi lưu dữ liệu: " + e.getMessage());
         }
     }
 
@@ -106,11 +106,11 @@ public class ConsoleMenu {
                 case 7: reportMenu(); break;
                 case 8:
                     saveData();
-                    System.out.println("\n👋 Cảm ơn bạn đã sử dụng hệ thống!");
+                    System.out.println("\nCảm ơn bạn đã sử dụng hệ thống!");
                     running = false;
                     break;
                 default:
-                    System.out.println("❌ Lựa chọn không hợp lệ!");
+                    System.out.println("Lựa chọn không hợp lệ!");
             }
         }
         scanner.close();
@@ -148,7 +148,7 @@ public class ConsoleMenu {
             case 4: updateProduct(); break;
             case 5: deleteProduct(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -199,15 +199,15 @@ public class ConsoleMenu {
                     product = new Furniture(name, category, importPrice, salePrice, stock, dimensions, weight);
                     break;
                 default:
-                    System.out.println("❌ Loại không hợp lệ!");
+                    System.out.println("Loại không hợp lệ!");
                     return;
             }
 
             productRepository.add(product);
             saveData();
-            System.out.println("✅ Đã thêm sản phẩm: " + product.getId());
+            System.out.println("Đã thêm sản phẩm: " + product.getId());
         } catch (Exception e) {
-            System.out.println("❌ Lỗi: " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -245,7 +245,7 @@ public class ConsoleMenu {
         List<Product> results = productRepository.search(keyword);
 
         if (results.isEmpty()) {
-            System.out.println("❌ Không tìm thấy sản phẩm nào!");
+            System.out.println(" Không tìm thấy sản phẩm nào!");
             return;
         }
 
@@ -261,7 +261,7 @@ public class ConsoleMenu {
 
         Product product = productRepository.findById(id);
         if (product == null) {
-            System.out.println("❌ Không tìm thấy sản phẩm!");
+            System.out.println("Không tìm thấy sản phẩm!");
             return;
         }
 
@@ -276,9 +276,9 @@ public class ConsoleMenu {
         try {
             productRepository.update(product);
             saveData();
-            System.out.println("✅ Đã cập nhật sản phẩm!");
+            System.out.println(" Đã cập nhật sản phẩm!");
         } catch (ProductNotFoundException e) {
-            System.out.println("❌ " + e.getMessage());
+            System.out.println("NO" + e.getMessage());
         }
     }
 
@@ -289,9 +289,9 @@ public class ConsoleMenu {
         try {
             productRepository.delete(id);
             saveData();
-            System.out.println("✅ Đã xóa sản phẩm!");
+            System.out.println("Đã xóa sản phẩm!");
         } catch (ProductNotFoundException e) {
-            System.out.println("❌ " + e.getMessage());
+            System.out.println("NO" + e.getMessage());
         }
     }
 
@@ -310,7 +310,7 @@ public class ConsoleMenu {
             case 2: viewAllCustomers(); break;
             case 3: searchCustomer(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -334,7 +334,7 @@ public class ConsoleMenu {
         Customer customer = new Customer(name, phone, email, address, type);
         customerRepository.add(customer);
         saveData();
-        System.out.println("✅ Đã thêm khách hàng: " + customer.getId());
+        System.out.println("Đã thêm khách hàng: " + customer.getId());
     }
 
     private void viewAllCustomers() {
@@ -363,7 +363,7 @@ public class ConsoleMenu {
         List<Customer> results = customerRepository.search(keyword);
 
         if (results.isEmpty()) {
-            System.out.println("❌ Không tìm thấy khách hàng nào!");
+            System.out.println("Không tìm thấy khách hàng nào!");
             return;
         }
 
@@ -388,7 +388,7 @@ public class ConsoleMenu {
             case 2: viewAllSuppliers(); break;
             case 3: searchSupplier(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -408,7 +408,7 @@ public class ConsoleMenu {
         Supplier supplier = new Supplier(name, phone, email, address, categories);
         supplierRepository.add(supplier);
         saveData();
-        System.out.println("✅ Đã thêm nhà cung cấp: " + supplier.getId());
+        System.out.println("Đã thêm nhà cung cấp: " + supplier.getId());
     }
 
     private void viewAllSuppliers() {
@@ -433,7 +433,7 @@ public class ConsoleMenu {
         List<Supplier> results = supplierRepository.search(keyword);
 
         if (results.isEmpty()) {
-            System.out.println("❌ Không tìm thấy nhà cung cấp nào!");
+            System.out.println(" Không tìm thấy nhà cung cấp nào!");
             return;
         }
 
@@ -460,7 +460,7 @@ public class ConsoleMenu {
             case 3: confirmImportOrder(); break;
             case 4: cancelImportOrder(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -470,7 +470,7 @@ public class ConsoleMenu {
         System.out.println("\nDanh sách nhà cung cấp:");
         List<Supplier> suppliers = supplierRepository.findAll();
         if (suppliers.isEmpty()) {
-            System.out.println("❌ Chưa có nhà cung cấp nào! Vui lòng thêm nhà cung cấp trước.");
+            System.out.println("Chưa có nhà cung cấp nào! Vui lòng thêm nhà cung cấp trước.");
             return;
         }
 
@@ -481,7 +481,7 @@ public class ConsoleMenu {
 
         int supplierIndex = getIntInput("Chọn nhà cung cấp: ") - 1;
         if (supplierIndex < 0 || supplierIndex >= suppliers.size()) {
-            System.out.println("❌ Lựa chọn không hợp lệ!");
+            System.out.println("Lựa chọn không hợp lệ!");
             return;
         }
         Supplier supplier = suppliers.get(supplierIndex);
@@ -502,7 +502,7 @@ public class ConsoleMenu {
 
             Product product = productRepository.findById(productId);
             if (product == null) {
-                System.out.println("❌ Không tìm thấy sản phẩm!");
+                System.out.println("Không tìm thấy sản phẩm!");
                 continue;
             }
 
@@ -512,11 +512,11 @@ public class ConsoleMenu {
 
             OrderItem item = new OrderItem(product, quantity, price);
             items.add(item);
-            System.out.println("✅ Đã thêm: " + quantity + " x " + product.getName());
+            System.out.println("Đã thêm: " + quantity + " x " + product.getName());
         }
 
         if (items.isEmpty()) {
-            System.out.println("❌ Phải có ít nhất 1 sản phẩm!");
+            System.out.println("Phải có ít nhất 1 sản phẩm!");
             return;
         }
 
@@ -525,11 +525,11 @@ public class ConsoleMenu {
                     supplier.getId(), warehouse, items
             );
             saveData();
-            System.out.println("\n✅ Đã tạo phiếu nhập: " + order.getId());
+            System.out.println("\nĐã tạo phiếu nhập: " + order.getId());
             System.out.println("   Tổng giá trị: " + String.format("%,.0f", order.getTotalAmount()) + " VNĐ");
             System.out.println("   Trạng thái: " + order.getStatus());
         } catch (Exception e) {
-            System.out.println("❌ Lỗi: " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -559,7 +559,7 @@ public class ConsoleMenu {
         try {
             warehouseService.confirmImport(orderId);
         } catch (OrderNotFoundException | IOException e) {
-            System.out.println("❌ " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -570,7 +570,7 @@ public class ConsoleMenu {
         try {
             warehouseService.cancelOrder(orderId, "IMPORT");
         } catch (OrderNotFoundException | IOException e) {
-            System.out.println("❌ " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -591,7 +591,7 @@ public class ConsoleMenu {
             case 3: confirmExportOrder(); break;
             case 4: cancelExportOrder(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -601,7 +601,7 @@ public class ConsoleMenu {
         System.out.println("\nDanh sách khách hàng:");
         List<Customer> customers = customerRepository.findAll();
         if (customers.isEmpty()) {
-            System.out.println("❌ Chưa có khách hàng nào! Vui lòng thêm khách hàng trước.");
+            System.out.println("Chưa có khách hàng nào! Vui lòng thêm khách hàng trước.");
             return;
         }
 
@@ -612,7 +612,7 @@ public class ConsoleMenu {
 
         int customerIndex = getIntInput("Chọn khách hàng: ") - 1;
         if (customerIndex < 0 || customerIndex >= customers.size()) {
-            System.out.println("❌ Lựa chọn không hợp lệ!");
+            System.out.println("Lựa chọn không hợp lệ!");
             return;
         }
         Customer customer = customers.get(customerIndex);
@@ -633,7 +633,7 @@ public class ConsoleMenu {
 
             Product product = productRepository.findById(productId);
             if (product == null) {
-                System.out.println("❌ Không tìm thấy sản phẩm!");
+                System.out.println("Không tìm thấy sản phẩm!");
                 continue;
             }
 
@@ -643,7 +643,7 @@ public class ConsoleMenu {
             int quantity = getIntInput("Số lượng: ");
 
             if (quantity > product.getStockQuantity()) {
-                System.out.println("⚠️  Cảnh báo: Không đủ hàng! Tồn kho chỉ còn: " + product.getStockQuantity());
+                System.out.println("Cảnh báo: Không đủ hàng! Tồn kho chỉ còn: " + product.getStockQuantity());
                 System.out.print("Vẫn muốn thêm? (y/n): ");
                 String confirm = scanner.nextLine();
                 if (!confirm.equalsIgnoreCase("y")) {
@@ -655,11 +655,11 @@ public class ConsoleMenu {
 
             OrderItem item = new OrderItem(product, quantity, price);
             items.add(item);
-            System.out.println("✅ Đã thêm: " + quantity + " x " + product.getName());
+            System.out.println("Đã thêm: " + quantity + " x " + product.getName());
         }
 
         if (items.isEmpty()) {
-            System.out.println("❌ Phải có ít nhất 1 sản phẩm!");
+            System.out.println("Phải có ít nhất 1 sản phẩm!");
             return;
         }
 
@@ -668,13 +668,13 @@ public class ConsoleMenu {
                     customer.getId(), address, items
             );
             saveData();
-            System.out.println("\n✅ Đã tạo phiếu xuất: " + order.getId());
+            System.out.println("\n Đã tạo phiếu xuất: " + order.getId());
             System.out.println("   Tổng giá trị: " + String.format("%,.0f", order.getTotalAmount()) + " VNĐ");
             System.out.println("   Trạng thái: " + order.getStatus());
         } catch (OutOfStockException e) {
-            System.out.println("\n❌ " + e.getMessage());
+            System.out.println("\nLỗi: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("❌ Lỗi: " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -704,7 +704,7 @@ public class ConsoleMenu {
         try {
             warehouseService.confirmExport(orderId);
         } catch (OrderNotFoundException | OutOfStockException | IOException | ProductNotFoundException e) {
-            System.out.println("❌ " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -715,7 +715,7 @@ public class ConsoleMenu {
         try {
             warehouseService.cancelOrder(orderId, "EXPORT");
         } catch (OrderNotFoundException | IOException e) {
-            System.out.println("❌ " + e.getMessage());
+            System.out.println("Lỗi: " + e.getMessage());
         }
     }
 
@@ -734,7 +734,7 @@ public class ConsoleMenu {
             case 2: viewLowStockProducts(); break;
             case 3: viewProductsByType(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -750,11 +750,11 @@ public class ConsoleMenu {
         List<Product> lowStock = productRepository.getLowStockProducts(threshold);
 
         if (lowStock.isEmpty()) {
-            System.out.println("✅ Không có sản phẩm nào sắp hết hàng!");
+            System.out.println("Không có sản phẩm nào sắp hết hàng!");
             return;
         }
 
-        System.out.println("\n⚠️  SẢN PHẨM SẮP HẾT HÀNG (< " + threshold + "):");
+        System.out.println("\n SẢN PHẨM SẮP HẾT HÀNG (< " + threshold + "):");
         System.out.println(String.format("%-10s | %-30s | %10s | %15s",
                 "ID", "Tên", "Tồn kho", "Loại"));
         System.out.println("-".repeat(80));
@@ -783,7 +783,7 @@ public class ConsoleMenu {
             case 3: type = "FOOD"; break;
             case 4: type = "FURNITURE"; break;
             default:
-                System.out.println("❌ Lựa chọn không hợp lệ!");
+                System.out.println("Lựa chọn không hợp lệ!");
                 return;
         }
 
@@ -822,7 +822,7 @@ public class ConsoleMenu {
             case 5: showSeasonalTrend(); break;
             case 6: exportReportToFile(); break;
             case 0: break;
-            default: System.out.println("❌ Lựa chọn không hợp lệ!");
+            default: System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 
@@ -839,7 +839,7 @@ public class ConsoleMenu {
         LocalDate toDate = parseDate(scanner.nextLine());
 
         if (fromDate == null || toDate == null) {
-            System.out.println("❌ Ngày không hợp lệ!");
+            System.out.println("Ngày không hợp lệ!");
             return;
         }
 
@@ -855,7 +855,7 @@ public class ConsoleMenu {
         LocalDate toDate = parseDate(scanner.nextLine());
 
         if (fromDate == null || toDate == null) {
-            System.out.println("❌ Ngày không hợp lệ!");
+            System.out.println("Ngày không hợp lệ!");
             return;
         }
 
@@ -949,7 +949,7 @@ public class ConsoleMenu {
                 String input = scanner.nextLine();
                 return Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("❌ Vui lòng nhập số!");
+                System.out.println(" Vui lòng nhập số!");
             }
         }
     }
@@ -961,7 +961,7 @@ public class ConsoleMenu {
                 String input = scanner.nextLine();
                 return Double.parseDouble(input);
             } catch (NumberFormatException e) {
-                System.out.println("❌ Vui lòng nhập số!");
+                System.out.println(" Vui lòng nhập số!");
             }
         }
     }
